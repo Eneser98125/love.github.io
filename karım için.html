@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bizim Hikayemiz</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background: rgba(255, 204, 204, 0.8);
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            color: #ff4d4d;
+        }
+        h1 {
+            font-size: 40px;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        .section {
+            padding: 40px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            border-radius: 25px;
+            max-width: 900px;
+            animation: fadeIn 1s ease-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            font-size: 20px;
+        }
+        ul li {
+            background: #ffcccc;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 15px;
+            font-size: 18px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        ul li:hover {
+            background: #ff9999;
+            transform: scale(1.05);
+        }
+        .underlined {
+            text-decoration: underline;
+            font-weight: bold;
+            color: #d63384;
+        }
+        .photo-gallery {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .photo-gallery img {
+            width: 100%;
+            max-width: 500px;
+            margin: 10px;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+        .photo-gallery img:hover {
+            transform: scale(1.1);
+        }
+        .heart-animation {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ff4d4d;
+            color: #fff;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+            border: none;
+        }
+        .heart-animation:hover {
+            background: #d63384;
+        }
+        footer {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            .section {
+                margin-top: 20px;
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#anilarimiz">Anılarımız</a>
+        <a href="#asik">Sana Olan Aşkım</a>
+    </nav>
+
+    <h1>Bizim Hikayemiz</h1>
+
+    <section id="anilarimiz" class="section">
+        <h2>Anılarımız</h2>
+        <ul>
+            <li onclick="showPhotos('anilar1')">💖 Birlikte düzen kurup seninle liste hazırlayıp, onları uygulamamızda beni çok mutlu ediyor. Seninle her zaman bir şeyler yapıp mutlu olmak, açıkçası en güzel şeylerden biri...</li>
+            <li onclick="showPhotos('anilar2')">💑 Birbirimizle aktiviteler yapmak beni çok mutlu etti. Cidden yüz yüze hiç kimseyle bu kadar mutlu olamazken, seninle sanal ortamda mutlu olmak beni çok etkiledi. Yan yana olmak dileğiyle...</li>
+            <li onclick="showPhotos('anilar3')">📸 Seninle birlikteyken fotoğraflarımızın üzerine emojiler koyup sevinmek çok güzeldi.</li>
+            <li onclick="showPhotos('anilar4')">📖 Bana kitaplarından en sevdiğin kısımları atıp, bunları okumamda seninle olmak en güzel anılardandı.</li>
+        </ul>
+        <div id="anilar1" class="photo-gallery">
+            <img src="liste.jpg" alt="Liste Fotoğrafı">
+            <img src="liste2.jpg" alt="Liste Fotoğrafı">
+        </div>
+        <div id="anilar2" class="photo-gallery">
+            <img src="aktivite.jpg" alt="Aktivite Fotoğrafı">
+            <img src="aktivite2.jpg" alt="Aktivite Fotoğrafı">
+        </div>
+        <div id="anilar3" class="photo-gallery">
+            <img src="emojilifoto.jpg" alt="Emoji Fotoğrafı">
+            <img src="emojilifoto2.jpg" alt="Emoji Fotoğrafı">
+        </div>
+        <div id="anilar4" class="photo-gallery">
+            <img src="kitap.jpg" alt="Kitap Fotoğrafı">
+            <img src="kitap2.jpg" alt="Kitap Fotoğrafı">
+        </div>
+    </section>
+
+    <section id="asik" class="section">
+        <h2>Sana Olan Aşkım</h2>
+        <p>❤️ Sana olan hislerimi kelimelerle anlatamam. Her an seni düşünmek, her an seninle olmak istiyorum. Gerçekten, seni çok seviyorum...</p>
+    </section>
+
+    <button class="heart-animation" onclick="startHeartEffect()">Bana Tıkla</button>
+
+    <script>
+        function showPhotos(anilarId) {
+            const allPhotos = document.querySelectorAll('.photo-gallery');
+            allPhotos.forEach(photo => photo.style.display = 'none');
+            document.getElementById(anilarId).style.display = 'block';
+        }
+
+        function startHeartEffect() {
+            for (let i = 0; i < 20; i++) {
+                let heart = document.createElement('div');
+                heart.innerHTML = '❤️';
+                heart.style.position = 'fixed';
+                heart.style.bottom = '50px';
+                heart.style.left = Math.random() * window.innerWidth + 'px';
+                heart.style.fontSize = '30px';
+                heart.style.opacity = '1';
+                heart.style.transition = 'all 2s ease-out';
+                document.body.appendChild(heart);
+                setTimeout(() => {
+                    heart.style.transform = 'translateY(-200px)';
+                    heart.style.opacity = '0';
+                    setTimeout(() => document.body.removeChild(heart), 2000);
+                }, 100);
+            }
+        }
+    </script>
+</body>
+</html>
